@@ -3,9 +3,9 @@ source ${BASEDR}/../../project-happydeal-viur.env
 
 gcloud config set compute/zone ${MY_CLUSTER_ZONE}
 
-gcloud container clusters create ${MY_CLUSTER_NAME} --num-nodes=${MY_CLUSTER_NODENUMBER_START}
+gcloud container clusters create ${MY_CLUSTER_NAME} --project=${MY_PROJECT_ID} --num-nodes=${MY_CLUSTER_NODENUMBER_START}
 
-gcloud compute instances list
+gcloud compute instances list --project=${MY_PROJECT_ID}
 
 kubectl run ${MY_DEPLOYMENT_NAME} --image=${MY_CONTAINER_REGISTRY}/${MY_PROJECT_ID}/${MY_CONTAINER_NAME} :${MY_PROJECT_VERSION} --port=${MY_PORT_INTERNAL}
 
