@@ -1,6 +1,7 @@
 #!/bin/bash 
 
-source project-happydeal-viur.env
+BASEDR=$(basedir ${0})
+source ${BASEDR}/project-happydeal-viur.env
 
 echo "Executing: " /usr/bin/docker build -t ${MY_CONTAINER_REGISTRY}/${MY_PROJECT_ID}/${MY_CONTAINER_NAME}:${MY_PROJECT_VERSION} .
 /usr/bin/docker build -t ${MY_CONTAINER_REGISTRY}/${MY_PROJECT_ID}/${MY_CONTAINER_NAME}:${MY_PROJECT_VERSION} .
